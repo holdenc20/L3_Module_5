@@ -35,11 +35,23 @@ public static void main(String[] args) {
 											if(num.get(t)==1){
 												nums.set(t, -t-1);
 											}
-											if(num.get(t)==2 && t<8 && nums.get(t)!=0){
+											if(num.get(t)==2 && t<8 && nums.get(t)!=0 && t>-1){
+												if(nums.get(t+1)>10) {
+													if(nums.get(t)>0 || nums.get(t+1)>0) {
+														nums.set(t, 100*(t+1) +nums.get(t+1));
+														nums.set(t+1, 0);
+													}
+													else {
+														nums.set(t, -100*Math.abs(t+1) +Math.abs(nums.get(t+1)));
+														nums.set(t+1, 0);
+													}
+												}
+												else {
 												nums.set(t, 10*(t+1)+t+2);
 												nums.set(t+1, 0);
+												}
 											}
-											System.out.println(nums);
+											//System.out.println(nums);
 											
 										}
 										test(nums);
@@ -53,6 +65,7 @@ public static void main(String[] args) {
 			}	
 		}
 	}
+	System.out.println();
 	System.out.println(solutions);
 }
 public static void makeList() {
